@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>SB Admin 2 | ADD</title>
+    <title>MONITOR IT | PIC</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -18,12 +18,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link rel="icon" href="img/PERSERO.jpg" type="image/jpg">
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link
-        href="https://cdn.datatables.net/v/bs4/jq-3.7.0/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-colvis-3.0.1/b-html5-3.0.1/b-print-3.0.1/r-3.0.1/datatables.min.css"
-        rel="stylesheet">
 
 
 </head>
@@ -35,13 +33,13 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center mb-4" href="index.php">
-                <div class="sidebar-brand-icon" style="padding-top: 50px;">
-                    <img src='img/persero batam.png' width='90px'>
+                <div class="sidebar-brand-icon" style="padding-top: 30px;">
+                    <img src='img/persero batam.png' width='70px'>
                 </div>
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0" style="margin-top: 30px !important;" />
+            <hr class="sidebar-divider my-0" style="margin-top: 6px !important;" />
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active" style="margin-top: 5px;">
@@ -77,9 +75,11 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
-            <div id="content">
+            <div id="content" style="background-color: #D3D3D3">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <h1 class="h3 mb-0 text-black-800 text-center text-warning"><strong>MONITOR PEKERJAAN IT</strong>
+                    </h1>
                     <!-- Sidebar Toggle (Topbar) -->
                     <form class="form-inline">
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -117,7 +117,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Adrian Sinaga</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
                             </a>
                             <!-- Dropdown - User Information -->
@@ -135,78 +135,79 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">PIC</h1>
 
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <td>No</td>
-                                <td>NIP</td>
-                                <td>NAMA</td>
-                                <td>ALAMAT</td>
-                                <td>TEMPAT LAHIR</td>
-                                <td>TGL LAHIR</td>
-                                <td>KELAMIN</td>
-                                <td>DARAH</td>
-                                <td>AGAMA</td>
-                                <td>TGL MASUK</td>
-                                <td>PENDIDIKAN</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- PHP  -->
-                            <?php
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Tambah Data</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <td>No</td>
+                                            <td>NIP</td>
+                                            <td>NAMA</td>
+                                            <td>ALAMAT</td>
+                                            <td>TEMPAT LAHIR</td>
+                                            <td>TGL LAHIR</td>
+                                            <td>KELAMIN</td>
+                                            <td>DARAH</td>
+                                            <td>AGAMA</td>
+                                            <td>TGL MASUK</td>
+                                            <td>PENDIDIKAN</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- PHP  -->
+                                        <?php
 
-                            include "koneksi.php";
-
-
-                            if ($koneksi->connect_error) {
-                                die("KONEKSI DATABASE GAGAL: " . $koneksi->connect_error);
-                            }
-
-                            $sql = "SELECT * FROM pic";
-                            $result = $koneksi->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row["No"] . "</td>";
-                                    echo "<td>" . $row["NIP"] . "</td>";
-                                    echo "<td>" . $row["NAMA"] . "</td>";
-                                    echo "<td>" . $row["ALAMAT"] . "</td>";
-                                    echo "<td>" . $row["TEMPAT LAHIR"] . "</td>";
-                                    echo "<td>" . $row["TGL LAHIR"] . "</td>";
-                                    echo "<td>" . $row["KELAMIN"] . "</td>";
-                                    echo "<td>" . $row["DARAH"] . "</td>";
-                                    echo "<td>" . $row["AGAMA"] . "</td>";
-                                    echo "<td>" . $row["TGL MASUK"] . "</td>";
-                                    echo "<td>" . $row["PENDIDIKAN"] . "</td>";
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='7'>Tidak ditemukan data pada tabel</td></tr>";
-                            }
-                            $koneksi->close();
-                            ?>
-
-                        </tbody>
-                    </table>
+                                        include "koneksi.php";
 
 
+                                        if ($koneksi->connect_error) {
+                                            die("KONEKSI DATABASE GAGAL: " . $koneksi->connect_error);
+                                        }
+
+                                        $sql = "SELECT * FROM pic";
+                                        $result = $koneksi->query($sql);
+
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo "<tr>";
+                                                echo "<td>" . $row["No"] . "</td>";
+                                                echo "<td>" . $row["NIP"] . "</td>";
+                                                echo "<td>" . $row["NAMA"] . "</td>";
+                                                echo "<td>" . $row["ALAMAT"] . "</td>";
+                                                echo "<td>" . $row["TEMPAT LAHIR"] . "</td>";
+                                                echo "<td>" . $row["TGL LAHIR"] . "</td>";
+                                                echo "<td>" . $row["KELAMIN"] . "</td>";
+                                                echo "<td>" . $row["DARAH"] . "</td>";
+                                                echo "<td>" . $row["AGAMA"] . "</td>";
+                                                echo "<td>" . $row["TGL MASUK"] . "</td>";
+                                                echo "<td>" . $row["PENDIDIKAN"] . "</td>";
+                                                echo "</tr>";
+                                            }
+                                        } else {
+                                            echo "<tr><td colspan='7'>Tidak ditemukan data pada tabel</td></tr>";
+                                        }
+                                        $koneksi->close();
+                                        ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+            <?php
+            include 'layouts/footer.php';
+            ?>
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->
@@ -230,13 +231,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Select "Logout" below if you are ready to end your current session.
+                    Pilih "Logout" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                        Cancel
+                        Batal
                     </button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.php">Logout</a>
                 </div>
             </div>
         </div>
@@ -252,17 +253,12 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-    <script
-        src="https://cdn.datatables.net/v/bs4/jq-3.7.0/jszip-3.10.1/dt-2.0.3/b-3.0.1/b-colvis-3.0.1/b-html5-3.0.1/b-print-3.0.1/r-3.0.1/datatables.min.js"></script>
-
-    <script>new DataTable('#example', {
-            scrollX: true
-        });</script>
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 
 
 </body>
